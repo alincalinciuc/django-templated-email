@@ -1,0 +1,2 @@
+django-templated-email
+======================
