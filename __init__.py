@@ -6,10 +6,9 @@ from django.contrib.sites.models import Site
 
 def send_templated_email(subject, from_email, to, template_name,
                         context={}, fail_silently=False,
-                        connection=None, template_prefix='email_templates/'):
+                        connection=None, template_prefix='email_templates/', cc = [], bcc = []):
 
     connection = connection or get_connection(fail_silently=fail_silently)
-
     try:
         plaintext = get_template('%s%s.txt' % (template_prefix, template_name))
     except TemplateDoesNotExist:
@@ -33,20 +32,20 @@ def send_templated_email(subject, from_email, to, template_name,
     if plaintext and html:
         print "plaintext and html"
         msg = EmailMultiAlternatives(subject, text_content, from_email,
-                                     to, connection=connection)
+                                     to, connection=connection, cc=cc, bcc=bcc)
         msg.attach_alternative(html_content, "text/html")
         result = msg.send(fail_silently=fail_silently)
 
     if plaintext and not html:
         print "plaintext and not html"
         msg = EmailMessage(subject, text_content, from_email, to,
-                           connection=connection)
+                           connection=connection, cc=cc, bcc=bcc)
         result = msg.send(fail_silently=fail_silently)
 
     if html and not plaintext:
         print "html and not plaintext"
         msg=EmailMessage(subject, html_content, from_email, to,
-                         connection=connection)
+                         connection=connection, cc=cc, bcc=bcc)
         msg.content_subtype = 'html'
         result = msg.send(fail_silently)
 
