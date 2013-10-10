@@ -11,7 +11,7 @@ Send emails in django with html/txt templates
 ```
 2. In setting.py file add "templated_email" to INSTALLED_APPS
 3. Use the function. Example:
-
+```
     from templated_email import send_templated_email
     
     ...
@@ -25,7 +25,7 @@ Send emails in django with html/txt templates
         # cc = []
         # bcc = []
     )
-    
+```
 4. Create the template files. 
 In your templates folder, create a folder named 'email_templates'. 
 Place example-template.html or example-template.txt inside of it. 
