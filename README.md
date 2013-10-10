@@ -5,13 +5,13 @@ Send emails in django with html/txt templates
 
 
 ## Installation
-1. Run the following command inside your django's project directory
+Run the following command inside your django's project directory
 
 ```git
     git submodule add https://github.com/simion/django-templated-email.git templated_email
 ```
 
-2. In setting.py file add "templated_email" to INSTALLED_APPS
+In setting.py file add "templated_email" to INSTALLED_APPS
 
 ```python
     INSTALLED_APPS = (
@@ -21,7 +21,7 @@ Send emails in django with html/txt templates
     )
 ```
 
-3. Use the function. Example:
+Use the function. Example:
 
 ```python
 from templated_email import send_templated_email
