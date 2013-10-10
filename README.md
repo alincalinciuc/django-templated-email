@@ -26,4 +26,6 @@ Send emails in django with html/txt templates
         # bcc = []
     )
     
-4. Create the template files. In your template folder, create a folder named 'email_templates'. Place example-template.html or example-template.txt inside of it. 
+4. Create the template files. 
+In your templates folder, create a folder named 'email_templates'. 
+Place example-template.html or example-template.txt inside of it. 
